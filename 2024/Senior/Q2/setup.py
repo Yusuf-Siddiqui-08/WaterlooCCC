@@ -11,13 +11,13 @@ def setup():
     N = random.randint(1, 100)
     _input = []
     for _ in range(T):
-        input.append("".join(random.choices(alphabet, k=N)))
+        _input.append("".join(random.choices(alphabet, k=N)))
 
-    return T, N, input
+    return T, N, _input
 
-input = setup()
+q_input = setup()
 solution = Solution()
-result = solution.solve(t=input[0], n=input[1], input=input[2])
+result = solution.solve(t=q_input[0], n=q_input[1], input=q_input[2])
 print(f"Solution: {result}")
 
 end_time = time.time()
