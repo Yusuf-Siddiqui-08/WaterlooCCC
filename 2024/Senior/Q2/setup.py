@@ -9,13 +9,12 @@ def setup():
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     T = random.randint(1, 10000)
     N = random.randint(1, 100)
-    input = []
+    _input = []
     for _ in range(T):
         input.append("".join(random.choices(alphabet, k=N)))
 
     return T, N, input
 
-#input = setup()
 input = setup()
 solution = Solution()
 result = solution.solve(t=input[0], n=input[1], input=input[2])
