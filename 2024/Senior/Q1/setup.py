@@ -1,25 +1,26 @@
 import time
 import psutil
 import os
-start_time = time.time()
 import random
 from Solution import Solution
 
 def setup():
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
-    T = random.randint(1, 10000)
-    N = random.randint(1, 100)
-    _input = []
-    for _ in range(T):
-        _input.append("".join(random.choices(alphabet, k=N)))
+    N = 1000000
+    x = random.randint(1, int((N/2))) * 2
+    H = []
+    for _ in range(x):
+        H.append(random.randint(1, 2000000))
 
-    return T, N, _input
+    return x, H
 
-q_input = setup()
+input = setup()
 solution = Solution()
-result = solution.solve(t=q_input[0], n=q_input[1], input=q_input[2])
+start_time = time.time()
+result = solution.solve(n=input[0], h=input[1])
 end_time = time.time()
 print(f"Solution: {result}")
+
+
 process = psutil.Process(os.getpid())
 memory_info = process.memory_info()
 print(f"Execution time: {end_time - start_time} seconds")
